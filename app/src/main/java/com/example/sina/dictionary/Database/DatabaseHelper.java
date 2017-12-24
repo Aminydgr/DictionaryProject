@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTable = String.format("CREATE TABLE %s (ID INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT, %s TEXT, %s TEXT)",TABLE_NAME ,COL2, COL3, COL4, COL5);
+        String createTable = String.format("CREATE TABLE %s (ID INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT, %s TEXT, %s TEXT)", TABLE_NAME, COL2, COL3, COL4, COL5);
         db.execSQL(createTable);
     }
 
@@ -53,30 +53,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-
     public Cursor translate(String item1) {
 
         Cursor data;
 
         try {
             SQLiteDatabase db = this.getWritableDatabase();
-            String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item1,item1,item1);
+            String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item1, item1, item1);
 
-             data= db.rawQuery(query, null);
+            data = db.rawQuery(query, null);
             return data;
-            
+
         } finally {
 
-            
+
         }
 
 
     }
-
-
-
 
 
     public Cursor getItemID(String name) {

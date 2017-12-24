@@ -88,31 +88,24 @@ public class MainFragment extends Fragment {
         });
 
 
+        buttonTranslate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Cursor cursor = databaseHelper.translate(editTextWord.getText().toString());
+                cursor.moveToFirst();
+                String eng = cursor.getString(1);
+                String per = cursor.getString(2);
+                String fre = cursor.getString(3);
+                String tur = cursor.getString(4);
 
+                textViewAnswer.setText(eng);
+                textViewAnswer.setText(per);
+                textViewAnswer.setText(fre);
+                textViewAnswer.setText(tur);
+            }
+        });
 
-
-//        Cursor cursor = databaseHelper.translate("hhh","aaa", "lll", "ppp");
-//        textViewAnswer.setText((CharSequence) cursor);
         return view;
     }
-
-//    public void translate() {
-//        databaseHelper = new DatabaseHelper(context);
-//        String lang = editTextWord.getText().toString();
-//        switch (dest) {
-//            case "English":
-//                databaseHelper.translate(lang, "", "", "");
-//                break;
-//            case "Persian":
-//                databaseHelper.translate("", lang, "", "");
-//                break;
-//            case "French":
-//                databaseHelper.translate("", "", lang, "");
-//                break;
-//            case "Turkish":
-//                databaseHelper.translate("", "", "", lang);
-//                break;
-//        }
-//    }
 }
