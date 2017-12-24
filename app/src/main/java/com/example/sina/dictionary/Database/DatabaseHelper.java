@@ -51,9 +51,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor translate(String item1, String item2, String item3, String item4) {
+    public Cursor translate(String item1) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item2, item3, item4);
+        String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1);
         Cursor data = db.rawQuery(query, null);
         return data;
     }

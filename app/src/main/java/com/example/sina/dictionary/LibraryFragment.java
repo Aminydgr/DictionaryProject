@@ -1,5 +1,6 @@
 package com.example.sina.dictionary;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -54,6 +55,30 @@ public class LibraryFragment extends Fragment {
 
             }
         });
+
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Cursor cursor = databaseHelper.translate(editTextSearch.getText().toString());
+//                String eng = cursor.getString(Integer.parseInt(cursor.getColumnName(1)));
+//                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
+//                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
+//                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
+
+                String eng = cursor.getString(Integer.parseInt(cursor.getColumnName(1)));
+                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
+                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
+                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
+
+                editTextEnglish.setText(eng);
+                editTextEnglish.setText(per);
+                editTextEnglish.setText(fre);
+                editTextEnglish.setText(tur);
+            }
+        });
+
 
 
 
