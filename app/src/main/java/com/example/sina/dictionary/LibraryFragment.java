@@ -10,10 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sina.dictionary.Database.DatabaseHelper;
-
-import java.util.Arrays;
 
 public class LibraryFragment extends Fragment {
     Context context;
@@ -64,18 +63,29 @@ public class LibraryFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Cursor cursor = databaseHelper.translate(editTextSearch.getText().toString());
-                System.out.println("count = " + cursor.getCount());
-                cursor.moveToFirst();
-                String eng = cursor.getString(1);
-                String per = cursor.getString(2);
-                String fre = cursor.getString(3);
-                String tur = cursor.getString(4);
+                try {
+                    Cursor cursor = databaseHelper.translate(editTextSearch.getText().toString());
+                    cursor.moveToFirst();
+                    String eng = cursor.getString(1);
+                    String per = cursor.getString(2);
+                    String fre = cursor.getString(3);
+                    String tur = cursor.getString(4);
 
-                editTextEnglish.setText(eng);
-                editTextPersian.setText(per);
-                editTextFrench.setText(fre);
-                editTextTurkish.setText(tur);
+                    editTextEnglish.setText(eng);
+                    editTextPersian.setText(per);
+                    editTextFrench.setText(fre);
+                    editTextTurkish.setText(tur);
+                } catch (Exception e) {
+                    Toast.makeText(context, "Not Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cursor cursor = databaseHelper.deleteWord(editTextSearch.getText().toString());
+
             }
         });
 

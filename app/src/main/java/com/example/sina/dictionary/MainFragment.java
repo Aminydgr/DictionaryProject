@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
 import com.example.sina.dictionary.Database.DatabaseHelper;
 
 public class MainFragment extends Fragment {
@@ -55,38 +54,6 @@ public class MainFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        view.findViewById(R.id.radioButtonEnglish).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dest = "English";
-            }
-        });
-
-        view.findViewById(R.id.radioButtonPersian).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dest = "Persian";
-
-            }
-        });
-
-        view.findViewById(R.id.radioButtonFrench).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dest = "French";
-
-            }
-        });
-
-        view.findViewById(R.id.radioButtonTurkish).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dest = "Turkish";
-
-            }
-        });
-
 
         buttonTranslate.setOnClickListener(new View.OnClickListener() {
             @Override

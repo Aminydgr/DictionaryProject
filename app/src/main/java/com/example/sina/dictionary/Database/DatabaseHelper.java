@@ -3,10 +3,8 @@ package com.example.sina.dictionary.Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -94,10 +92,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(query4);
     }
 
-    public void deleteWord(String name) {
+    public Cursor deleteWord(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = String.format("Delete from Dictionary Where English = '%s' or Persian = '%s' or french = '%s' or turkish = '%s'", name, name, name, name);
         db.execSQL(query);
+        return null;
     }
 }
 
