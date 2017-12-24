@@ -43,49 +43,6 @@
         android:layout_below="@+id/editTextWord"
         android:text="Translate" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="95dp">
-
-        <RadioButton
-            android:id="@+id/radioButtonEnglish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/editTextWord"
-            android:layout_weight="1"
-            android:text="English" />
-
-        <RadioButton
-            android:id="@+id/radioButtonPersian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/radioButtonEnglish"
-            android:layout_weight="1"
-            android:text="Persian" />
-
-        <RadioButton
-            android:id="@+id/radioButtonTurkish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/radioButtonFrench"
-            android:layout_weight="1"
-            android:text="Turkish" />
-
-        <RadioButton
-            android:id="@+id/radioButtonFrench"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/radioButtonPersian"
-            android:layout_weight="1"
-            android:text="French" />
-    </RadioGroup>
-
     <CheckBox
         android:id="@+id/checkBoxEnglish"
         android:layout_width="wrap_content"

@@ -30,7 +30,6 @@ public class MainFragment extends Fragment {
     RadioButton radioButtonFrecnh;
     RadioButton radioButtonTurkish;
 
-    String dest = "English";
 
     public MainFragment() {
     }
