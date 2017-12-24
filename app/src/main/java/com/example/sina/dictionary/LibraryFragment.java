@@ -68,14 +68,14 @@ public class LibraryFragment extends Fragment {
 //                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
 
                 String eng = cursor.getString(Integer.parseInt(cursor.getColumnName(1)));
-                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
-                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
-                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
+//                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
+//                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
+//                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
 
                 editTextEnglish.setText(eng);
-                editTextEnglish.setText(per);
-                editTextEnglish.setText(fre);
-                editTextEnglish.setText(tur);
+//                editTextEnglish.setText(per);
+//                editTextEnglish.setText(fre);
+//                editTextEnglish.setText(tur);
             }
         });
 
