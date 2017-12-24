@@ -23,7 +23,13 @@ public class LibraryFragment extends Fragment {
     EditText editTextTurkish;
     Button buttonSearch;
     Button buttonDone;
+    Button buttonEdit;
     Button buttonDelete;
+
+    public String eng;
+    public String per;
+    public String fre;
+    public String tur;
 
     public LibraryFragment() {
 
@@ -49,6 +55,7 @@ public class LibraryFragment extends Fragment {
         buttonSearch = (Button) view.findViewById(R.id.buttonSearch);
         buttonDone = (Button) view.findViewById(R.id.buttonDone);
         buttonDelete = (Button) view.findViewById(R.id.buttonDelete);
+        buttonEdit = (Button) view.findViewById(R.id.buttonEdit);
 
 
         buttonDone.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +85,10 @@ public class LibraryFragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(context, "Not Found", Toast.LENGTH_SHORT).show();
                 }
+                eng = editTextEnglish.getText().toString();
+                per = editTextPersian.getText().toString();
+                fre = editTextFrench.getText().toString();
+                tur = editTextTurkish.getText().toString();
             }
         });
 
@@ -85,6 +96,20 @@ public class LibraryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Cursor cursor = databaseHelper.deleteWord(editTextSearch.getText().toString());
+
+            }
+        });
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                databaseHelper.updateWord(editTextEnglish.getText().toString(), eng);
+                databaseHelper.updateWord(editTextPersian.getText().toString(), per);
+                databaseHelper.updateWord(editTextFrench.getText().toString(), fre);
+                databaseHelper.updateWord(editTextTurkish.getText().toString(), tur);
+
 
             }
         });

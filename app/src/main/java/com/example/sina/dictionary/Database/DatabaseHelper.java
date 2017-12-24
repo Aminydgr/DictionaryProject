@@ -55,32 +55,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Cursor data;
 
-        try {
-            SQLiteDatabase db = this.getWritableDatabase();
-            String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item1, item1, item1);
-
-            data = db.rawQuery(query, null);
-            return data;
-
-        } finally {
-
-
-        }
-
-
-    }
-
-
-    public Cursor getItemID(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT " + COL1 + " FROM " + TABLE_NAME +
-                " WHERE " + COL2 + " = '" + name + "'";
-        Cursor data = db.rawQuery(query, null);
+        String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item1, item1, item1);
+
+        data = db.rawQuery(query, null);
         return data;
+
     }
 
     public void updateWord(String newName, String oldName) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         String query1 = String.format("UPDATE Dictionary SET English = '%s' where English = '%s'", newName, oldName);
         String query2 = String.format("UPDATE Dictionary SET Persian = '%s' where Persian = '%s'", newName, oldName);
         String query3 = String.format("UPDATE Dictionary SET French = '%s' where French = '%s'", newName, oldName);

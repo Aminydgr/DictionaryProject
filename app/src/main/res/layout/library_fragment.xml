@@ -85,11 +85,26 @@
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/buttonDone"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Done" />
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonDelete"
