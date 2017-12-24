@@ -1,8 +1,10 @@
 package com.example.sina.dictionary;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,10 @@ import android.widget.EditText;
 
 import com.example.sina.dictionary.Database.DatabaseHelper;
 
+import java.util.Arrays;
+
 public class LibraryFragment extends Fragment {
-    Context context ;
+    Context context;
     EditText editTextSearch;
     EditText editTextEnglish;
     EditText editTextPersian;
@@ -27,7 +31,7 @@ public class LibraryFragment extends Fragment {
     }
 
 
-    public  void setContext(Context context){
+    public void setContext(Context context) {
         this.context = context;
     }
 
@@ -38,11 +42,11 @@ public class LibraryFragment extends Fragment {
         View view = inflater.inflate(R.layout.library_fragment, container, false);
 
         final DatabaseHelper databaseHelper = new DatabaseHelper(context);
-        editTextSearch = (EditText)view.findViewById(R.id.editTextSearch);
-        editTextEnglish = (EditText)view.findViewById(R.id.editTextEnglish);
-        editTextPersian = (EditText)view.findViewById(R.id.editTextPersian);
-        editTextFrench = (EditText)view.findViewById(R.id.editTextFrench);
-        editTextTurkish = (EditText)view.findViewById(R.id.editTextTurkish);
+        editTextSearch = (EditText) view.findViewById(R.id.editTextSearch);
+        editTextEnglish = (EditText) view.findViewById(R.id.editTextEnglish);
+        editTextPersian = (EditText) view.findViewById(R.id.editTextPersian);
+        editTextFrench = (EditText) view.findViewById(R.id.editTextFrench);
+        editTextTurkish = (EditText) view.findViewById(R.id.editTextTurkish);
         buttonSearch = (Button) view.findViewById(R.id.buttonSearch);
         buttonDone = (Button) view.findViewById(R.id.buttonDone);
         buttonDelete = (Button) view.findViewById(R.id.buttonDelete);
@@ -60,31 +64,20 @@ public class LibraryFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
                 Cursor cursor = databaseHelper.translate(editTextSearch.getText().toString());
-//                String eng = cursor.getString(Integer.parseInt(cursor.getColumnName(1)));
-//                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
-//                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
-//                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
-
-                String eng = cursor.getString(Integer.parseInt(cursor.getColumnName(1)));
-//                String per = cursor.getString(Integer.parseInt(cursor.getColumnName(2)));
-//                String fre = cursor.getString(Integer.parseInt(cursor.getColumnName(3)));
-//                String tur = cursor.getString(Integer.parseInt(cursor.getColumnName(4)));
+                System.out.println("count = " + cursor.getCount());
+                cursor.moveToFirst();
+                String eng = cursor.getString(1);
+                String per = cursor.getString(2);
+                String fre = cursor.getString(3);
+                String tur = cursor.getString(4);
 
                 editTextEnglish.setText(eng);
-//                editTextEnglish.setText(per);
-//                editTextEnglish.setText(fre);
-//                editTextEnglish.setText(tur);
+                editTextPersian.setText(per);
+                editTextFrench.setText(fre);
+                editTextTurkish.setText(tur);
             }
         });
-
-
-
-
-
-
-
 
 
         return view;

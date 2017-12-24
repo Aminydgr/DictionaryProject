@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -51,15 +52,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+
+
+
     public Cursor translate(String item1) {
-        SQLiteDatabase db = this.getWritableDatabase();
-//        String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1);
 
-        String query = String.format("SELECT * FROM Dictionary where english ='%s' " , item1);
+        Cursor data;
 
-        Cursor data = db.rawQuery(query, null);
-        return data;
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            String query = String.format("SELECT * FROM Dictionary WHERE English LIKE '%s' OR PERSIAN LIKE '%s' OR FRENCH LIKE '%s' OR TURKISH LIKE '%s'", item1, item1,item1,item1);
+
+             data= db.rawQuery(query, null);
+            return data;
+            
+        } finally {
+
+            
+        }
+
+
     }
+
+
+
+
 
     public Cursor getItemID(String name) {
         SQLiteDatabase db = this.getWritableDatabase();

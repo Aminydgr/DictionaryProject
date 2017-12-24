@@ -97,22 +97,22 @@ public class MainFragment extends Fragment {
         return view;
     }
 
-    public void translate() {
-        databaseHelper = new DatabaseHelper(context);
-        String lang = editTextWord.getText().toString();
-        switch (dest) {
-            case "English":
-                databaseHelper.translate(lang, "", "", "");
-                break;
-            case "Persian":
-                databaseHelper.translate("", lang, "", "");
-                break;
-            case "French":
-                databaseHelper.translate("", "", lang, "");
-                break;
-            case "Turkish":
-                databaseHelper.translate("", "", "", lang);
-                break;
-        }
-    }
+//    public void translate() {
+//        databaseHelper = new DatabaseHelper(context);
+//        String lang = editTextWord.getText().toString();
+//        switch (dest) {
+//            case "English":
+//                databaseHelper.translate(lang, "", "", "");
+//                break;
+//            case "Persian":
+//                databaseHelper.translate("", lang, "", "");
+//                break;
+//            case "French":
+//                databaseHelper.translate("", "", lang, "");
+//                break;
+//            case "Turkish":
+//                databaseHelper.translate("", "", "", lang);
+//                break;
+//        }
+//    }
 }
