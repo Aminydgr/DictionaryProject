@@ -37,6 +37,14 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+
+
+    public void setContext(Context context) {
+        this.context = context;
+        databaseHelper= new DatabaseHelper(context);
     }
 
     @Override

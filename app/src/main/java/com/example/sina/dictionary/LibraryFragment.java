@@ -26,6 +26,7 @@ public class LibraryFragment extends Fragment {
     Button buttonEdit;
     Button buttonDelete;
 
+
     public String eng;
     public String per;
     public String fre;
